@@ -1,0 +1,80 @@
+function validateNumber(event) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46 || event.keyCode === 45 || event.keyCode === 43) {
+        return true;
+    } else if ( key < 48 || key > 57 ) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+function validateCuil(event) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46 || event.keyCode === 45) {
+        return true;
+    } else if ( key < 48 || key > 57 ) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+function validateInteger(event) {
+    var key = window.event ? event.keyCode : event.which;
+    if ( key < 48 || key > 57 ) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+
+function add_options_contacto(id_select, data) {
+    $(id_select).selectpicker();
+    $(id_select).attr('disabled', false);
+    $(id_select).find('option').remove().end();
+
+    for (i = 0; i < data.length; i++) {
+        var cadena = data[i]['name'];
+        if (data[i].hasOwnProperty('email'))
+            cadena.concat(' - email: ', data[i]['email']);
+        if (data[i].hasOwnProperty('email'))
+            cadena.concat(' - tel: ', data[i]['telefono']);
+
+        $(id_select).append('<option value="' + data[i]['id'] + '">' + cadena + '</option>');
+
+    }
+    $(id_select).selectpicker("refresh");
+};
+
+//Add Options to selects
+function add_options(id_select,data){
+    $(id_select).selectpicker();
+    $(id_select).attr('disabled',false);
+    $(id_select).find('option').remove().end();
+
+    for (i=0;i<data.length;i++){
+            if (data[i].hasOwnProperty('codigo_postal')){
+                $(id_select).append('<option value="'+data[i]['id']+'">'+data[i]['name']+' [C.P.:'+data[i]['codigo_postal']+']</option>');
+            }else{
+                $(id_select).append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+            }
+    }
+
+    $(id_select).selectpicker("refresh");
+};
+
+function add_localidad(data){
+
+    $('#loc_select_picker').selectpicker();
+    $('#loc_select_picker').attr('disabled',false);
+    $('#loc_select_picker').append('<option value="'+data['id']+'">'+data['name']+' [C.P.:'+data['codigo_postal']+']</option>');
+    $('#loc_select_picker').selectpicker("refresh");
+    $('#loc_select_picker').val(data['id']);
+    $('#loc_select_picker').selectpicker("refresh");
+
+};
+
+
+
