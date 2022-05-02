@@ -1,0 +1,33 @@
+.bdp-input {
+    border-radius: 4px;
+    padding: 0 3px;
+    border: 1px solid rgba(34, 36, 38, .15);
+    cursor: pointer;
+    text-align: center;
+}
+
+.bdp-input.disabled {
+    color: #AAA;
+    cursor: default;
+}
+
+.bdp-popover {
+    min-width: 110px;
+}
+
+.bdp-popover input {
+    display: inline;
+    margin-bottom: 3px;
+    width: 60px;
+}
+
+.bdp-block {
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    padding: 12px 5px;
+}
+
+.bdp-label {
+    font-size: 100%;
+}
